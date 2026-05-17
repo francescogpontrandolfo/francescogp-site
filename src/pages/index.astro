@@ -25,11 +25,7 @@ const posts = (await getCollection('blog'))
 					Product Manager at <a href="https://alan.com" target="_blank" rel="noopener">Alan</a> in Paris.
 					From Puglia — writing, building, and trying to have fun out there.
 				</p>
-				<div class="cta">
-					<a href="/apps">Apps →</a>
-					<a href="/blog">Blog →</a>
-				</div>
-			</section>
+				</section>
 
 			{posts.length > 0 && (
 				<section class="writing">
@@ -79,27 +75,7 @@ const posts = (await getCollection('blog'))
 		color: var(--accent);
 		text-decoration-color: var(--accent);
 	}
-	.cta {
-		display: flex;
-		gap: 2rem;
-	}
-	.cta a {
-		font-size: 0.8rem;
-		font-weight: 500;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		text-decoration: none;
-		color: rgb(var(--black));
-		border-bottom: 1px solid rgb(var(--gray-light));
-		padding-bottom: 2px;
-		transition: border-color 0.2s, color 0.2s;
-	}
-	.cta a:hover {
-		color: var(--accent);
-		border-color: var(--accent);
-	}
-
-	.writing {
+.writing {
 		padding: 2.5em 0;
 	}
 	.section-label {
