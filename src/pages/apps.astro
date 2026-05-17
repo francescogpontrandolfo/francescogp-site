@@ -1,0 +1,121 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const apps = [
+	{
+		name: 'Lena',
+		description: 'An iPhone app to track friendships, birthdays, and stay in touch with the people who matter. Because good relationships deserve a little intention.',
+		tags: ['iOS', 'Swift'],
+		github: 'https://github.com/francescogpontrandolfo/Lena',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="Apps — Francesco G. Pontrandolfo" description="Things I've built." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-header">
+				<h1>Apps</h1>
+				<p>Things I've built.</p>
+			</section>
+
+			<ul class="app-list">
+				{apps.map((app) => (
+					<li class="app-card">
+						<div class="app-top">
+							<h2>{app.name}</h2>
+							{app.github && (
+								<a href={app.github} target="_blank" rel="noopener" class="app-link">GitHub →</a>
+							)}
+						</div>
+						<p>{app.description}</p>
+						<div class="tags">
+							{app.tags.map((tag) => <span class="tag">{tag}</span>)}
+						</div>
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.page-header {
+		padding: 4em 0 2.5em;
+		border-bottom: 1px solid rgb(var(--gray-light));
+		margin-bottom: 0;
+	}
+	.page-header h1 {
+		font-size: clamp(2.5rem, 7vw, 4rem);
+		margin-bottom: 0.3em;
+	}
+	.page-header p {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: 1.15rem;
+		color: rgb(var(--gray));
+		margin: 0;
+	}
+
+	.app-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.app-card {
+		padding: 2.5em 0;
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.app-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		margin-bottom: 0.6em;
+		gap: 1rem;
+	}
+	.app-top h2 {
+		font-size: 1.8rem;
+		margin: 0;
+	}
+	.app-link {
+		font-size: 0.85rem;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		white-space: nowrap;
+		text-decoration: none;
+		color: rgb(var(--gray));
+	}
+	.app-link:hover {
+		color: var(--accent);
+	}
+	.app-card p {
+		font-size: 0.95rem;
+		color: rgb(var(--gray-dark));
+		line-height: 1.75;
+		margin-bottom: 1.2em;
+		max-width: 500px;
+	}
+	.tags {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+	.tag {
+		font-size: 0.72rem;
+		font-weight: 500;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		padding: 0.3em 0.8em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 100px;
+		color: rgb(var(--gray));
+	}
+</style>
