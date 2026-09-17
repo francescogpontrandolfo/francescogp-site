@@ -1,6 +1,6 @@
 ---
 title: 'Lessons from two years of building agents to fight fraud'
-description: 'What I learnt shipping Watson, an AI agent that runs fraud investigations alongside human operators at Alan.'
+description: 'What I learnt from building Watson, an AI agent that runs fraud investigations alongside humans at Alan'
 pubDate: '2026-09-17'
 ---
 
